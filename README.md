@@ -1,4 +1,4 @@
-#Info
+# Info
 "mealsApp" - Simple application showing my learning progress
 
 #### Technologies
