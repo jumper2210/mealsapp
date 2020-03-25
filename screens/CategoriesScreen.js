@@ -7,15 +7,16 @@ import {
   Button,
   TouchableOpacity
 } from "react-native";
-
+import CategoryGridTitle from "../components/CategoryGridTitle";
 import { CATEGORIES } from "../data/dummy-data";
 
 const CategoriesScreen = props => {
   const renderGridItem = itemData => {
     return (
-      <TouchableOpacity
-        style={styles.gridItem}
-        onPress={() => {
+      <CategoryGridTitle
+        title={itemData.item.title}
+        color={itemData.item.color}
+        onSelect={() => {
           props.navigation.navigate({
             routeName: "CategoryMeals",
             params: {
@@ -23,17 +24,10 @@ const CategoriesScreen = props => {
             }
           });
         }}
-      >
-        <View>
-          <Text>{itemData.item.title}</Text>
-        </View>
-      </TouchableOpacity>
+      />
     );
   };
-
-  return (
-    <FlatList data={CATEGORIES} renderItem={renderGridItem} numColumns={2} />
-  );
+  <FlatList data={CATEGORIES} renderItem={renderGridItem} numColumns={2} />;
 };
 
 CategoriesScreen.navigationOptions = {
@@ -45,11 +39,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
-  },
-  gridItem: {
-    flex: 1,
-    margin: 15,
-    height: 140
   }
 });
 export default CategoriesScreen;
