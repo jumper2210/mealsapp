@@ -1,6 +1,5 @@
 # Info
-"mealsApp" - Simple application showing my learning progress
-
+"mealsApp"
 #### Technologies
 - ReactNative
 - React Navigation
